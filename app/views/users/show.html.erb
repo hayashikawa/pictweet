@@ -1,0 +1,8 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+  
+    <!--"tweets/tweet"　→　同じディレクトリではないため、どこのディレクトリにある部分テンプレートなのかを指定します。-->
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+  <% end %>
+</div>

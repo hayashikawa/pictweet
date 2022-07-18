@@ -1,0 +1,12 @@
+<%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+<div class="contents row">
+  <% @tweets.each do |tweet| %>
+  
+    <!--locals: { tweet: tweet }  <= 部分テンプレート内で使用できる変数tweetに、each文のブロック変数であるtweetを代入-->
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
+  <% end %>
+</div>
